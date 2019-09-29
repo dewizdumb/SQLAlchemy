@@ -42,17 +42,31 @@ app = Flask(__name__)
 def welcome():
 
     return (
-        f"Available Routes:<br/>"
+        f"Available Routes for Flask Server:<br/>"
+		f"-----------------------------------------<br/>"
+		f"<br/>"
         f"The dates and temperature observations from the last year:<br/>"
         f"/api/v1.0/precipitation<br/>"
+		f"-----------------------------------------<br/>"
+		f"<br/>"
         f"List of stations from the dataset:<br/>"
         f"/api/v1.0/stations<br/>"
+		f"-----------------------------------------<br/>"
+		f"<br/>"
         f"List of Temperature Observations (tobs) for the previous year:<br/>"
         f"/api/v1.0/tobs<br/>"
-        f"List of the minimum temperature, the average temperature, and the max temperature for a given start(i.e.2017-1-1):<br/>"
-        f"/api/v1.0/<start><br/>"
-        f"List of the minimum temperature, the average temperature, and the max temperature for a given start and end(i.e.2017-01-01/2017-01-07):<br/>"
-        f"/api/v1.0/<start>/<end><br/>"
+		f"-----------------------------------------<br/>"
+		f"<br/>"
+        f"List of the minimum temperature, the average temperature, and the max temperature for given date (ie- June 1, 2017:<br/>"
+		f"Replace 'start' with YYYY-MM-DD</br>"
+        f"/api/v1.0/start<br/>"
+		f"-----------------------------------------<br/>"
+		f"<br/>"
+        f"List of the minimum temperature, the average temperature, and the max temperature for a given start and end date (ie- June 1 - 10, 2017):<br/>"
+		f"Replace 'start/end' with YYYY-MM-DD/YYYY-MM-DD</br>"
+        f"/api/v1.0/start/end<br/>"
+		f"-----------------------------------------<br/>"
+		f"<br/>"
     )
 
 
@@ -147,7 +161,7 @@ def calc_temps(start=None,end=None):
     for tmin, tavg, tmax in temps:
     	temp_dict = dict()
     	temp_dict["Min Temp"] = tmin
-    	temp_dict["Avg Temo"] = tavg
+    	temp_dict["Avg Temp"] = tavg
     	temp_dict["Max Temp"] = tmax
     	temp_list.append(temp_dict)
 
